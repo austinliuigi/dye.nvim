@@ -1,0 +1,23 @@
+---@alias hex_t string
+---@alias dec_t integer
+---@alias rgb_t { r: integer, g: integer, b: integer }
+---@alias hsl_t { h: integer, s: integer, l: integer }
+---@alias color_t hex_t|dec_t|rgb_t|hsl_t
+
+---@class (exact) Color
+---@field rgb rgb_t
+---@field hsl hsl_t
+---@field r number
+---@field b number
+---@field g number
+---@field h number
+---@field s number
+---@field l number
+---@field hue fun(h: number): Color
+---@field saturation fun(s: number): Color
+---@field lightness fun(l: number): Color
+---@field rotate fun(val: number): Color
+---@field saturate fun(val: number): Color
+---@field desaturate fun(val: number): Color
+---@field lighten fun(val: number): Color
+---@field darken fun(val: number): Color
