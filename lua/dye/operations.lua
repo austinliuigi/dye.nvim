@@ -103,15 +103,16 @@ end
 ---@param ratio number
 ---@return hex_t hex
 function M.blend(color1, color2, ratio)
-  local hsl1 = lib.any_to_hsl(color1)
-  local hsl2 = lib.any_to_hsl(color2)
+  local rgb1 = lib.any_to_rgb(color1)
+  local rgb2 = lib.any_to_rgb(color2)
 
-  local blended_hsl = {
-    h = lib.rerp(hsl1.h, hsl2.h, ratio),
-    s = lib.lerp(hsl1.s, hsl2.s, ratio),
-    l = lib.lerp(hsl1.l, hsl2.l, ratio),
+  local blended_rgb = {
+    r = lib.lerp(rgb1.r, rgb2.r, ratio),
+    g = lib.lerp(rgb1.g, rgb2.g, ratio),
+    b = lib.lerp(rgb1.b, rgb2.b, ratio),
   }
-  return lib.hsluv_to_hex(blended_hsl)
+
+  return lib.rgb_to_hex(blended_rgb)
 end
 
 return M
